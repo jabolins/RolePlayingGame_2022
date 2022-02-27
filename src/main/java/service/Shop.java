@@ -20,10 +20,14 @@ public class Shop {
             int menuPoint = 0;
             System.out.println("1. Buy lives\n2. Go back");
 
-            try {
-                menuPoint = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                e.printStackTrace();
+            while (true) {
+                try {
+                    menuPoint = scanner.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Number entered was not an integer");
+                    scanner.next();
+                }
             }
 
             switch (menuPoint) {

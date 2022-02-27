@@ -33,6 +33,8 @@ public class Forest {
                 human.attack(monster);
                 if (monster.getLives() <= 0) {
                     System.out.println("You vin");
+                    human.setGold(human.getGold() + monster.getGold());
+                    human.setExperience(human.getExperience() + monster.getPower());
                     break;
                 }
 
@@ -76,24 +78,28 @@ public class Forest {
         Scanner scanner = new Scanner(System.in);
         int menuPoint = 0;
 
-        System.out.println("1. One more fight\n2. Go home\n");
+            System.out.println("1. One more fight\n2. Go home\n");
 
-        try { //TODO jāsataisa lai ievad tik ilgi kamēr ir cipars
-            menuPoint = scanner.nextInt();
-        } catch (InputMismatchException e) {
-            e.printStackTrace();
-        }
+            while (true) {
+                try { //TODO jāsataisa lai ievad tik ilgi kamēr ir cipars
+                    menuPoint = scanner.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Number entered was not an integer");
+                    scanner.next();
+                }
+            }
 
-        switch (menuPoint) {
-            case 1:
-                System.out.println("turpinām kauju");
-                break;
-            case 2:
-                System.out.println("atgriežamies mājās");
-                end = true;
-                break;
-            default:
-                System.out.println("ievadiet pareizu vērtību");
-        }
+            switch (menuPoint) { //TODO jāpārtaisa jo šobrīd ievadot nekorektu vērtību turpinās kauja
+                case 1:
+                    System.out.println("turpinām kauju");
+                    break;
+                case 2:
+                    System.out.println("atgriežamies mājās");
+                    end = true;
+                    break;
+                default:
+                    System.out.println("ievadiet pareizu vērtību");
+            }
     }
 }

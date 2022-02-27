@@ -10,10 +10,10 @@ public class Game {
 
     public void run() {
         end = false;
-        Human human = new Human("A", 100, 10, 20, 0, 30);//TODO jāsataisa lai izveido pats cilvēku
+        Human human = new Human("A", 100, 10, 25, 0, 40);//TODO jāsataisa lai izveido pats cilvēku
 
         while (!end) {
-            if (human.getLives()<=0){
+            if (human.getLives() <= 0) {
                 System.out.println("Game over");
                 break;
             }
@@ -27,12 +27,17 @@ public class Game {
 
         System.out.println("1. Go to Go to shop\n2. Go to dark forest\n3. Exit");
 
-        try {
-            menuPoint = scanner.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Number entered was not an integer"); //TODO jāuztaisa lai nevar ievadīt burtu
-            //e.printStackTrace();
+        while (true) {
+            try {
+                menuPoint = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Number entered was not an integer");
+                scanner.next();
+                //e.printStackTrace();
+            }
         }
+
         switch (menuPoint) {
             case 1:
                 System.out.println("uz veikalu");

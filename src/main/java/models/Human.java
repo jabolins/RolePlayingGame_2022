@@ -11,7 +11,7 @@ public class Human extends GameCharacter {
         super(name, lives, gold, agility, experience, power);
         this.level = 1;
         this.maximumLevel = 100;
-        this.maximumLives=lives;
+        this.maximumLives = lives;
     }
 
     public int getLevel() {
@@ -38,31 +38,14 @@ public class Human extends GameCharacter {
         this.maximumLives = maximumLives;
     }
 
-   // Random random=new Random();
-
-//    @Override
-//    public String attack(GameCharacter gameCharacter) {
-//
-//        int rnd=random.nextInt(100);
-//        if (rnd>agility*3){
-//            return "did not hit";
-//        }
-//
-//        gameCharacter.setLives(gameCharacter.getLives() - power);
-//        if (gameCharacter.getLives() <= 0) {
-//            gold+=gameCharacter.getGold();
-//            experience+= 34; /// TODO šeit jāizdomā kāds būs pieredzes skaits un kā to noteikt
-//            if (experience>=100){
-//                level++;
-//                experience-=100;
-//                power+=10;
-//                agility+=10;
-//            }
-//            return "win";
-//        }
-//
-//        return "took " + power + " lives";
-//    }
+    public String levelUp() {
+        level++;
+        experience -= 100;
+        maximumLives += 10;
+        power += 10;
+        agility += 10;
+        return "Congratilation, your leveli is "+ level;
+    }
 
     @Override
     public String toString() {
