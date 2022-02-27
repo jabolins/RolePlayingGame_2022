@@ -6,15 +6,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
-    private static boolean end = false;
+    private static boolean end;
 
     public void run() {
         end = false;
-        Human human = new Human("A", 100, 10, 20, 0, 30);
+        Human human = new Human("A", 100, 10, 20, 0, 30);//TODO jāsataisa lai izveido pats cilvēku
 
         while (!end) {
-
             if (human.getLives()<=0){
+                System.out.println("Game over");
                 break;
             }
             menu(human);
@@ -40,7 +40,7 @@ public class Game {
                 break;
             case 2:
                 System.out.println("uz mežu");
-                Battle.fight(human);
+                Forest.run(human);
                 break;
             case 3:
                 end = true;
@@ -49,6 +49,4 @@ public class Game {
                 System.out.println("nepareiza izvēle, izvēlieties no 1 līdz 3");
         }
     }
-
-
 }

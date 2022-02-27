@@ -38,31 +38,31 @@ public class Human extends GameCharacter {
         this.maximumLives = maximumLives;
     }
 
-    Random random=new Random();
+   // Random random=new Random();
 
-    @Override
-    public String attack(GameCharacter gameCharacter) {
-
-        int rnd=random.nextInt(100);
-        if (rnd>agility*3){
-            return "did not hit";
-        }
-
-        gameCharacter.setLives(gameCharacter.getLives() - power);
-        if (gameCharacter.getLives() <= 0) {
-            gold+=gameCharacter.getGold();
-            experience+= 34; /// TODO šeit jāizdomā kāds būs pieredzes skaits un kā to noteikt
-            if (experience>=100){
-                level++;
-                experience-=100;
-                power+=10;
-                agility+=10;
-            }
-            return "win";
-        }
-
-        return "took " + power + " lives";
-    }
+//    @Override
+//    public String attack(GameCharacter gameCharacter) {
+//
+//        int rnd=random.nextInt(100);
+//        if (rnd>agility*3){
+//            return "did not hit";
+//        }
+//
+//        gameCharacter.setLives(gameCharacter.getLives() - power);
+//        if (gameCharacter.getLives() <= 0) {
+//            gold+=gameCharacter.getGold();
+//            experience+= 34; /// TODO šeit jāizdomā kāds būs pieredzes skaits un kā to noteikt
+//            if (experience>=100){
+//                level++;
+//                experience-=100;
+//                power+=10;
+//                agility+=10;
+//            }
+//            return "win";
+//        }
+//
+//        return "took " + power + " lives";
+//    }
 
     @Override
     public String toString() {
