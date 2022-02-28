@@ -10,9 +10,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Forest {
+
+    public Forest(Human human) {
+        this.human = human;
+    }
+
+    private Human human;
     private static boolean end;
 
-    public static void run(Human human) {
+    public void run() {
         Monster monster;
         end = false;
 
@@ -78,28 +84,28 @@ public class Forest {
         Scanner scanner = new Scanner(System.in);
         int menuPoint = 0;
 
+
+        while (menuPoint != 1 && menuPoint != 2) {
             System.out.println("1. One more fight\n2. Go home\n");
-
-            while (true) {
-                try { //TODO jāsataisa lai ievad tik ilgi kamēr ir cipars
-                    menuPoint = scanner.nextInt();
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Number entered was not an integer");
-                    scanner.next();
-                }
+            try {
+                menuPoint = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Number entered was not an integer");
+                scanner.next();
             }
+        }
 
-            switch (menuPoint) { //TODO jāpārtaisa jo šobrīd ievadot nekorektu vērtību turpinās kauja
-                case 1:
-                    System.out.println("turpinām kauju");
-                    break;
-                case 2:
-                    System.out.println("atgriežamies mājās");
-                    end = true;
-                    break;
-                default:
-                    System.out.println("ievadiet pareizu vērtību");
-            }
+        switch (menuPoint) {
+            case 1:
+                System.out.println("One more fight! Yes!");
+                break;
+            case 2:
+                System.out.println("Going to home");
+                end = true;
+                break;
+            default:
+                System.out.println("incorrect value");
+        }
+
     }
 }

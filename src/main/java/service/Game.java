@@ -1,7 +1,6 @@
 package service;
 
 import models.Human;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,33 +24,33 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         int menuPoint = 0;
 
-        System.out.println("1. Go to Go to shop\n2. Go to dark forest\n3. Exit");
+        while (menuPoint!=1 && menuPoint!=2 && menuPoint!=3) {
+            System.out.println("1. Go to Go to shop\n2. Go to dark forest\n3. Exit");
 
-        while (true) {
             try {
                 menuPoint = scanner.nextInt();
-                break;
             } catch (InputMismatchException e) {
                 System.out.println("Number entered was not an integer");
                 scanner.next();
-                //e.printStackTrace();
             }
         }
 
         switch (menuPoint) {
             case 1:
-                System.out.println("uz veikalu");
-                Shop.buy(human);
+                System.out.println("Going to shop");
+               Shop shop = new Shop(human);
+                shop.buy();
                 break;
             case 2:
-                System.out.println("uz mežu");
-                Forest.run(human);
+                System.out.println("Going to forest");
+                Forest forest = new Forest(human);
+                forest.run();
                 break;
             case 3:
                 end = true;
                 break;
             default:
-                System.out.println("nepareiza izvēle, izvēlieties no 1 līdz 3");
+                System.out.println("incorrect value");
         }
     }
 }
