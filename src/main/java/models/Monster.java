@@ -7,23 +7,6 @@ public abstract class Monster extends GameCharacter {
         super(name, lives, gold, agility, experience, power);
     }
 
-   // Random random = new Random();
-
-//    @Override
-//    public String attack(GameCharacter gameCharacter) {
-//
-//        int rnd = random.nextInt(100);
-//        if (rnd > agility * 3) {
-//            return "did not hit";
-//        }
-//
-//         gameCharacter.setLives(gameCharacter.getLives()-power);
-//        if (gameCharacter.getLives()<=0){
-//            return "win";
-//        }
-//        return "took " + power + " lives";
-//    }
-
     @Override
     public String toString() {
         return "Monster{" +

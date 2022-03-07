@@ -67,16 +67,28 @@ public abstract class GameCharacter {
         this.power = power;
     }
 
+    /**
+     *
+     * @param gameCharacter
+     * @return how many lives the attacker will take away
+     */
     public int attack(GameCharacter gameCharacter) {
+        if (!isAttackSuccessful()) { return 0;}
+        else {
+            gameCharacter.setLives(gameCharacter.getLives() - power);
+            System.out.println((this.getName() + " took " + power + " lives"));
+            return power;
+        }
+    }
+
+    private boolean isAttackSuccessful() {
         Random random = new Random();
         int rnd = random.nextInt(100);
         if (rnd > agility * 3) {
             System.out.println(this.getName() + " did not hit");
-            return 0;
+            return false;
         }
-
-        gameCharacter.setLives(gameCharacter.getLives() - power);
-        System.out.println((this.getName()+ " took "+ power + "lives"));
-        return power;
+        return true;
     }
+
 }
