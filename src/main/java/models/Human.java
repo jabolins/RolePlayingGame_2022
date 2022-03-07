@@ -38,13 +38,12 @@ public class Human extends GameCharacter {
         this.maximumLives = maximumLives;
     }
 
-    public String levelUp() {
+    public void levelUp() {
         level++;
         experience -= 100;
         maximumLives += 10;
         power += 10;
         agility += 10;
-        return "Congratilation, your leveli is "+ level;
     }
 
     @Override
